@@ -6,11 +6,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const express = require("express");
-const app = express();
-
-app.use(express.json());
-
 // fake database
 let posts = [
     { id: 1, title: "My First Post" },
@@ -27,7 +22,7 @@ app.get("/posts", (req, res) => {
     res.json(posts);
 });
 
-// POST NEW POST
+// ADD POST
 app.post("/posts", (req, res) => {
     const newPost = {
         id: posts.length + 1,
@@ -36,22 +31,7 @@ app.post("/posts", (req, res) => {
 
     posts.push(newPost);
 
-    res.json({
-        message: "Post added 🔥",
-        post: newPost
-    });
-});
-
-// EASY TEST ROUTE (no Thunder needed)
-app.get("/add", (req, res) => {
-    const newPost = {
-        id: posts.length + 1,
-        title: "Post from browser 🔥"
-    };
-
-    posts.push(newPost);
-
-    res.send("Post added!");
+    res.json(newPost);
 });
 
 const PORT = process.env.PORT || 3000;
