@@ -12,12 +12,12 @@ let posts = [
     { id: 2, title: "Learning Backend" }
 ];
 
-// HOME
+// HOME ROUTE
 app.get("/", (req, res) => {
-    res.send("Home Page 🔥");
+    res.send("Backend is working 🔥");
 });
 
-// GET POSTS
+// POSTS ROUTE
 app.get("/posts", (req, res) => {
     res.json(posts);
 });
@@ -38,4 +38,4 @@ const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
-});z
+});
